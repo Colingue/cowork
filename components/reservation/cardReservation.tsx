@@ -22,7 +22,7 @@ export default function CardReservation({
   people: number;
   price: number;
   image: string;
-  spaceId: number;
+  spaceId: string;
   address: string;
 }>) {
   const [isOpen, setIsOpen] = useState(false);

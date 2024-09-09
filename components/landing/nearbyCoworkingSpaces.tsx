@@ -10,14 +10,16 @@ export default function NearbyCoworkingSpaces() {
       availablePlaces: 10,
       description:
         'Un espace moderne au cœur de Paris, idéal pour les professionnels.',
-      image: '/img/paris.jpg'
+      image: '/img/paris.jpg',
+      address: 'Paris'
     },
     {
       title: 'Coworking Lyon',
       price: 42,
       availablePlaces: 5,
       description: 'Bureaux partagés avec toutes les commodités nécessaires.',
-      image: '/img/lyon.jpg'
+      image: '/img/lyon.jpg',
+      address: 'Lyon'
     },
     {
       title: 'Bordeaux Workspace',
@@ -25,14 +27,16 @@ export default function NearbyCoworkingSpaces() {
       availablePlaces: 8,
       description:
         'Un espace de coworking confortable et bien situé à Bordeaux.',
-      image: '/img/bordeaux.jpg'
+      image: '/img/bordeaux.jpg',
+      address: 'Bordeaux'
     },
     {
       title: 'Marseille Hub',
       price: 14,
       availablePlaces: 12,
       description: 'Espaces de travail collaboratifs avec vue sur la mer.',
-      image: '/img/marseille.jpg'
+      image: '/img/marseille.jpg',
+      address: 'Marseille'
     }
   ];
 
@@ -47,10 +51,10 @@ export default function NearbyCoworkingSpaces() {
             <CoworkingCard
               key={`space-${space.title}`}
               title={space.title}
-              price={parseInt(space.price)}
+              price={space.price}
               availablePlaces={space.availablePlaces}
-              description={space.description}
               image={space.image}
+              address={space.address}
             />
           ))}
         </div>
