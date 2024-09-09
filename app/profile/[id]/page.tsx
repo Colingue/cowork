@@ -20,8 +20,8 @@ export default async function Page({
 
   return (
     <div className='lg:max-w-5xl w-full mx-auto py-10'>
-      <div className='flex gap-20'>
-        <div className='w-1/3'>
+      <div className='flex lg:flex-row flex-col-reverse gap-20'>
+        <div className='lg:w-1/3'>
           <div className='shadow-lg rounded-xl flex items-center gap-10 h-56 mb-8'>
             <div className='text-center flex-grow gap-2 flex flex-col items-center'>
               {session?.user?.image && (
@@ -68,7 +68,7 @@ export default async function Page({
             </div>
           )}
         </div>
-        <div className='w-2/3'>
+        <div className='lg:w-2/3'>
           <h1 className='text-2xl font-bold mb-8'>
             Information sur {user?.name}
           </h1>
