@@ -60,8 +60,8 @@ export default async function Page({
               </p>
 
               <p className='text-sm mb-4'>
-                Avant de réserver ou d'accueillir des voyageurs sur Airbnb, vous
-                devez effectuer cette procédure.
+                Avant de réserver ou d&apos;accueillir des voyageurs sur Airbnb,
+                vous devez effectuer cette procédure.
               </p>
 
               <Button variant='outline'>Vérifier mon identité</Button>

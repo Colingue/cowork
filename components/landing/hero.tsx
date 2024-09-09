@@ -12,7 +12,7 @@ export default function Hero() {
       <div className='relative z-10 flex items-center justify-center h-full'>
         <div className='bg-white p-8 rounded-lg shadow-lg text-center max-w-lg mx-auto'>
           <h1 className='text-4xl  text-gray-800 mb-12'>
-            Trouvez l'espace de coworking idéal pour travailler en toute
+            Trouvez l&apos;espace de coworking idéal pour travailler en toute
             sérénité.
           </h1>
 

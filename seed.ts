@@ -26,7 +26,9 @@ async function main() {
         priceMin: priceMin,
         priceMax: priceMax,
         city: faker.location.city(),
-        address: faker.location.streetAddress()
+        address: faker.location.streetAddress(),
+        contactEmail: 'colin.noiret@gmail.com',
+        contactPhone: '0632799859'
       }
     });
   }

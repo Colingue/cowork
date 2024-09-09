@@ -13,7 +13,7 @@ export default function Footer() {
               productif.
             </p>
             <p className='text-gray-400 mt-2'>
-              123 Rue de l'Innovation, Paris, France
+              123 Rue de l&apos;Innovation, Paris, France
             </p>
             <p className='text-gray-400'>
               Email:{' '}
