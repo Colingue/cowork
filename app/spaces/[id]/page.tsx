@@ -18,7 +18,7 @@ export default async function Space({
   }
 
   return (
-    <div className='lg:max-w-6xl mx-auto py-8'>
+    <div className='lg:max-w-6xl lg:mx-auto mx-4 py-8'>
       <div className='mb-4 flex justify-between'>
         <h1 className='text-2xl font-bold'>{space.name}</h1>
         <div className='flex gap-2'>
@@ -32,7 +32,7 @@ export default async function Space({
           </button>
         </div>
       </div>
-      <div className='mb-8 h-[500px] relative'>
+      <div className='mb-8 lg:h-[500px] h-[300px] relative'>
         <Image
           src={space?.image ?? 'https://placehold.co/600x400'}
           alt='Space image'
@@ -42,8 +42,8 @@ export default async function Space({
         />
       </div>
 
-      <div className='flex'>
-        <div className='w-3/5 mr-20'>
+      <div className='lg:flex'>
+        <div className='lg:w-3/5 lg:mr-20'>
           <p className='text-xl font-bold '>
             Espace de coworking, {space.city}
           </p>
@@ -84,7 +84,7 @@ export default async function Space({
             />
           </div>
         </div>
-        <div className='w-2/5'>
+        <div className='lg:w-2/5'>
           <ReservationContainer price={space.priceMin} />
         </div>
       </div>

@@ -24,15 +24,13 @@ export default async function Header() {
             Reservations
           </Link>
         </nav>
-        {session?.user ? (
-          <div className='hidden lg:block'>
+        <div className='hidden lg:block'>
+          {session?.user ? (
             <HeaderMenu user={session.user} />
-          </div>
-        ) : (
-          <div>
+          ) : (
             <ButtonSignIn />
-          </div>
-        )}
+          )}
+        </div>
 
         <HambergerMenu />
       </div>

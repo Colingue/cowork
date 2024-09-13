@@ -38,9 +38,9 @@ export default function CardReservation({
   };
 
   return (
-    <div className='flex max-w-xl'>
-      <div className='flex w-9/12'>
-        <div className='rounded-lg overflow-hidden relative w-36 h-36 mr-4'>
+    <div className='lg:flex max-w-xl'>
+      <div className='lg:flex lg:w-9/12'>
+        <div className='rounded-lg overflow-hidden relative aspect-square lg:w-36 lg:h-36 mb-4 lg:mr-4'>
           <Image
             src={image}
             layout='fill'

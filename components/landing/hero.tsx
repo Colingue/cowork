@@ -10,10 +10,10 @@ export default function Hero() {
       <div className='absolute inset-0 bg-black opacity-50'></div>
 
       <div className='relative z-10 flex items-center justify-center h-full'>
-        <div className='bg-white p-8 rounded-lg shadow-lg text-center max-w-lg mx-auto'>
-          <h1 className='text-4xl  text-gray-800 mb-12'>
-            Trouvez l&apos;espace de coworking idéal pour travailler en toute
-            sérénité.
+        <div className='bg-white p-8 rounded-lg shadow-lg text-center max-w-lg w-4/5'>
+          <p className='text-blue-500 font-bold mb-4 text-xl'>🔎 Cowork </p>
+          <h1 className='lg:text-4xl text-2xl font-semibold text-gray-800 mb-12'>
+            Trouvez l&apos;espace de coworking idéal
           </h1>
 
           <div className='flex flex-col justify-center mb-6 mx-10'>
