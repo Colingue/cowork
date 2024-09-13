@@ -27,8 +27,12 @@ export default async function Page({
 
   const days =
     Math.ceil(
-      (dayjs(searchParams.endDate).toDate().getTime() -
-        dayjs(searchParams.startDate).toDate().getTime()) /
+      (dayjs(searchParams.endDate as string)
+        .toDate()
+        .getTime() -
+        dayjs(searchParams.startDate as string)
+          .toDate()
+          .getTime()) /
         (1000 * 60 * 60 * 24)
     ) + 1;
 
@@ -45,8 +49,11 @@ export default async function Page({
             <div className='mb-4'>
               <p className='text-lg font-medium'>Dates</p>
               <div className='flex'>
-                <p>{dayjs(searchParams.startDate).format('DD MMM.')}</p>-
-                <p>{dayjs(searchParams.endDate).format('DD MMM.')}</p>
+                <p>
+                  {dayjs(searchParams.startDate as string).format('DD MMM.')}
+                </p>
+                -
+                <p>{dayjs(searchParams.endDate as string).format('DD MMM.')}</p>
               </div>
             </div>
           )}

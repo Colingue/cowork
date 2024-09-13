@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
 import ButtonSignIn from '../auth/buttonSignIn';
-import HeaderMenu from './headerMenu';
 
 export default function HambergerMenu() {
   const [isOpen, setIsOpen] = useState(false);
