@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import ReservationPayButton from '@/components/reservation/reservationPayButton';
 import SumReservationPrice from '@/components/elements/sumReservationPrice';
 import BackButton from '@/components/elements/backButton';
+import RedirectToLogin from '@/components/auth/redirectToLogin';
 
 export default async function Page({
   params,
@@ -16,12 +17,12 @@ export default async function Page({
 
   const session = await auth();
 
-  if (!id || !searchParams || searchParams.endDate || searchParams.startDate) {
+  if (!id || !searchParams?.endDate || !searchParams?.startDate) {
     return <div>Not found</div>;
   }
 
   if (!session?.user?.id) {
-    return <div>Not found</div>;
+    return <RedirectToLogin />;
   }
 
   const days =
