@@ -5,6 +5,8 @@ import { useState } from 'react';
 import ButtonSignOut from '../auth/buttonSignOut';
 import { User } from 'next-auth';
 import Image from 'next/image';
+import { Menu } from 'lucide-react';
+import MenuTabs from './menuTabs';
 
 type HeaderMenuProps = {
   user: User;
@@ -19,35 +21,24 @@ export default function HeaderMenu({ user }: Readonly<HeaderMenuProps>) {
 
   return (
     <div className='relative inline-block text-left'>
-      <div onClick={toggleMenu} className='cursor-pointer'>
+      <div
+        onClick={toggleMenu}
+        className='cursor-pointer flex border border-gray-300 p-2 items-center gap-4 rounded-full hover:shadow-md'
+      >
+        <Menu className='ml-2' size={20} />
+
         {user.image && user.name && (
           <Image
             src={user.image}
             alt={user.name}
-            width={20}
-            height={20}
-            className='w-10 h-10 rounded-full object-cover'
+            width={30}
+            height={30}
+            className=' rounded-full'
           />
         )}
       </div>
 
-      {isMenuOpen && (
-        <div className='absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50'>
-          <ul className='py-1'>
-            <li>
-              <Link
-                href={`/profile/${user.id}`}
-                className='block px-4 py-2 text-gray-700 hover:bg-gray-100'
-              >
-                Profil
-              </Link>
-            </li>
-            <li>
-              <ButtonSignOut className='block px-4 py-2 text-left text-gray-700 hover:bg-gray-100 w-full' />
-            </li>
-          </ul>
-        </div>
-      )}
+      {isMenuOpen && <MenuTabs user={user} />}
     </div>
   );
 }

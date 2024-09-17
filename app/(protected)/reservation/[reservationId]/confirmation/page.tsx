@@ -1,7 +1,7 @@
 import Button from '@/components/elements/button';
-import SumReservationPrice from '@/components/elements/sumReservationPrice';
 import CardInfoSpace from '@/components/reservation/cardInfoSpace';
 import prisma from '@/src/lib/prisma';
+import { CheckCircle2Icon } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function ReservationConfirmation({
@@ -18,17 +18,18 @@ export default async function ReservationConfirmation({
     }
   });
 
-  console.log('reservation', reservation);
-
   if (!reservation) {
     return <div>Not found</div>;
   }
 
   return (
-    <div className='lg:max-w-5xl mx-auto'>
-      <h1 className='text-3xl font-medium mb-6'>
-        Votre réservation est confirmée!
-      </h1>
+    <div className='lg:max-w-5xl mx-auto flex flex-col mt-10 items-center'>
+      <div className='text-center bg-green-50 rounded-t-xl p-10 w-full'>
+        <CheckCircle2Icon size={48} className='text-green-500 mx-auto' />
+        <h1 className='text-3xl font-medium mb-6'>
+          Votre réservation est confirmée!
+        </h1>
+      </div>
 
       <div className='mb-6'>
         <CardInfoSpace id={reservation.space.id} />

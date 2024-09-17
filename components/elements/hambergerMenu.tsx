@@ -5,10 +5,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
 import ButtonSignIn from '../auth/buttonSignIn';
+import { useSession } from 'next-auth/react';
+import ButtonSignOut from '../auth/buttonSignOut';
 
 export default function HambergerMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { data, status } = useSession();
+  console.log(data);
   const toggleIsOpen = () => setIsOpen((o) => !o);
   return (
     <div className='lg:hidden block'>
@@ -42,7 +46,22 @@ export default function HambergerMenu() {
                 Reservations
               </Link>
             </div>
-            <ButtonSignIn />
+
+            {status === 'authenticated' ? (
+              <>
+                <Link
+                  onClick={toggleIsOpen}
+                  href={`/profile/${data.user?.id}`}
+                  className='text-gray-700 hover:text-blue-600 font-semibold'
+                >
+                  Profil
+                </Link>
+                <div className='border-b my-4' />
+                <ButtonSignOut className='block text-gray-700 hover:text-blue-600 font-semibold' />
+              </>
+            ) : (
+              <ButtonSignIn />
+            )}
           </motion.div>
         )}
       </AnimatePresence>

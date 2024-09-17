@@ -33,9 +33,6 @@ export default function HeaderSpacesType({
     }
   ];
 
-  console.log('type', type);
-  console.log('spacesType', spacesType);
-
   return (
     <div className='flex justify-center gap-4'>
       {spacesType.map((spaceType) => (

@@ -18,7 +18,7 @@ export default async function Spaces({
   const promise = prisma.space.findMany({ where: { type } });
 
   return (
-    <div className='mx-8 lg:mx-20 py-10' key={uuidv4()}>
+    <div className='mx-8 lg:mx-20 py-6' key={uuidv4()}>
       <HeaderSpacesType type={type} />
       <Suspense fallback={<SkeletonGrid />}>
         <Await promise={promise}>

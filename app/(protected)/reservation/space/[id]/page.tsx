@@ -37,8 +37,8 @@ export default async function Page({
     ) + 1;
 
   return (
-    <div className='lg:max-w-5xl mx-auto pt-20 flex'>
-      <div className='w-1/2 mr-10'>
+    <div className='lg:max-w-5xl lg:mx-auto mx-8 pt-20 flex lg:flex-row flex-col-reverse'>
+      <div className='lg:w-1/2 mr-10'>
         <div className='flex items-center relative'>
           <BackButton />
           <h1 className='text-3xl font-medium'>Confirmer et payer</h1>
@@ -89,7 +89,7 @@ export default async function Page({
         />
       </div>
 
-      <div className='w-1/2'>
+      <div className='lg:w-1/2'>
         <CardInfoSpace id={id}>
           <SumReservationPrice
             days={days}

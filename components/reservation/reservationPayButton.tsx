@@ -30,8 +30,6 @@ export default function ReservationPayButton({
       peopleNumber
     );
 
-    console.log('createdBooking', createdBooking);
-
     router.push(`/reservation/${createdBooking.id}/confirmation`);
   };
 
