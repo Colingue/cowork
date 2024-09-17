@@ -1,13 +1,29 @@
 import SpacesGrid from '@/components/spaces/spacesGrid';
 import { Suspense } from 'react';
 import SkeletonGrid from '@/components/elements/skeletons/skeletonGrid';
+import HeaderSpacesType from '@/components/spaces/headerSpacesType';
+import prisma from '@/src/lib/prisma';
+import Await from '@/components/layouts/await';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function Spaces() {
+export default async function Spaces({
+  searchParams
+}: Readonly<{
+  params: { id: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}>) {
+  const type =
+    typeof searchParams?.type === 'string' ? searchParams.type : undefined;
+
+  const promise = prisma.space.findMany({ where: { type } });
+
   return (
-    <div className='mx-8 lg:mx-20 py-10 '>
-      <h1 className='text-3xl font-bold mb-4'>Coworking Spaces</h1>
+    <div className='mx-8 lg:mx-20 py-10' key={uuidv4()}>
+      <HeaderSpacesType type={type} />
       <Suspense fallback={<SkeletonGrid />}>
-        <SpacesGrid />
+        <Await promise={promise}>
+          {(spaces) => <SpacesGrid spaces={spaces} />}
+        </Await>
       </Suspense>
     </div>
   );

@@ -5,7 +5,8 @@ const nextConfig = {
       'loremflickr.com',
       'picsum.photos',
       'lh3.googleusercontent.com',
-      'images.unsplash.com'
+      'images.unsplash.com',
+      'images.pexels.com'
     ] // Add the hostname(s) of your external image sources
   }
 };

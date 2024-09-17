@@ -2,7 +2,12 @@ import { faker } from '@faker-js/faker';
 import prisma from './src/lib/prisma';
 
 async function main() {
-  const numberOfSpaces = 10; // Définir combien d'espaces vous voulez créer
+  const imagesUrl = [
+    'https://images.pexels.com/photos/2041627/pexels-photo-2041627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'https://images.pexels.com/photos/7688173/pexels-photo-7688173.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'https://images.pexels.com/photos/3712597/pexels-photo-3712597.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+  ];
+  const numberOfSpaces = 3; // Définir combien d'espaces vous voulez créer
 
   for (let i = 0; i < numberOfSpaces; i++) {
     const spaceType = faker.helpers.arrayElement([
@@ -21,14 +26,14 @@ async function main() {
       data: {
         name: faker.company.name(),
         description: faker.lorem.paragraph(),
-        image: faker.image.url(),
+        image: imagesUrl[i],
         type: spaceType,
         priceMin: priceMin,
         priceMax: priceMax,
         city: faker.location.city(),
         address: faker.location.streetAddress(),
-        contactEmail: 'colin.noiret@gmail.com',
-        contactPhone: '0632799859'
+        contactEmail: faker.internet.email(),
+        contactPhone: faker.phone.number()
       }
     });
   }

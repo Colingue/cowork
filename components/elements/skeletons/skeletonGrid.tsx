@@ -3,7 +3,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 const SkeletonGrid = () => {
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 animate-pulse'>
       {Array.from({ length: 8 }).map((_, index) => (
         <div key={index} className='aspect-square flex flex-col'>
           <div className='relative w-full h-full'>
