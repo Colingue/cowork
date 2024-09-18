@@ -1,12 +1,12 @@
 'use client';
 
-import Link from 'next/link';
-import { useState } from 'react';
-import ButtonSignOut from '../auth/buttonSignOut';
+import { useRef, useState } from 'react';
 import { User } from 'next-auth';
 import Image from 'next/image';
 import { Menu } from 'lucide-react';
 import MenuTabs from './menuTabs';
+import { motion } from 'framer-motion';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 type HeaderMenuProps = {
   user: User;
@@ -19,9 +19,13 @@ export default function HeaderMenu({ user }: Readonly<HeaderMenuProps>) {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const wrapperRef = useRef(null);
+  useOutsideClick(wrapperRef, () => setIsMenuOpen(false));
+
   return (
-    <div className='relative inline-block text-left'>
-      <div
+    <div className='relative inline-block text-left' ref={wrapperRef}>
+      <motion.button
+        whileTap={{ scale: 0.97 }}
         onClick={toggleMenu}
         className='cursor-pointer flex border border-gray-300 p-2 items-center gap-4 rounded-full hover:shadow-md'
       >
@@ -36,7 +40,7 @@ export default function HeaderMenu({ user }: Readonly<HeaderMenuProps>) {
             className=' rounded-full'
           />
         )}
-      </div>
+      </motion.button>
 
       {isMenuOpen && <MenuTabs user={user} />}
     </div>

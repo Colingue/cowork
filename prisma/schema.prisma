@@ -47,7 +47,8 @@ model User {
   accounts      Account[]
   sessions      Session[]
   bookings      Booking[]
- 
+  favorites     Favorite[]
+
   @@map("users")
 }
  
@@ -73,6 +74,7 @@ model Space {
   bookings   Booking[]
   contactEmail String
   contactPhone String
+  favorites  Favorite[]
 
   @@map("spaces")
 }
@@ -88,4 +90,15 @@ model Booking {
   space       Space    @relation(fields: [spaceId], references: [id], onDelete: Cascade)
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   @@map("bookings")
+}
+
+model Favorite {
+  id          String   @id @default(cuid())
+  spaceId     String   @map("space_id")
+  userId      String   @map("user_id")
+  space       Space    @relation(fields: [spaceId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([spaceId, userId])
+  @@map("favorites")
 }

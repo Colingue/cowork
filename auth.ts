@@ -14,5 +14,11 @@ const prisma = new PrismaClient({ adapter });
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [Google],
   adapter: PrismaAdapter(prisma),
-  secret: process.env.NEXT_PUBLIC_SECRET
+  secret: process.env.NEXT_PUBLIC_SECRET,
+  callbacks: {
+    async session({ session, user }) {
+      session.user.id = user.id;
+      return session;
+    }
+  }
 });

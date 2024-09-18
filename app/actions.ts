@@ -35,3 +35,33 @@ export async function deleteReservation(reservationId: string): Promise<any> {
 
   revalidatePath('/');
 }
+
+export async function addFavorite(
+  spaceId: string,
+  userId: string
+): Promise<any> {
+  await prisma.favorite.create({
+    data: {
+      spaceId: spaceId,
+      userId: userId
+    }
+  });
+
+  revalidatePath('/');
+}
+
+export async function removeFavorite(
+  spaceId: string,
+  userId: string
+): Promise<any> {
+  await prisma.favorite.delete({
+    where: {
+      AND: {
+        spaceId: spaceId,
+        userId: userId
+      }
+    }
+  });
+
+  revalidatePath('/');
+}

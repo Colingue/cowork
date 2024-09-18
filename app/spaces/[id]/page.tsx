@@ -3,9 +3,9 @@ import Advantages from '@/components/spaces/spaceDetails/advantages';
 import MapDetail from '@/components/spaces/spaceDetails/mapDetail';
 import ToKnow from '@/components/spaces/spaceDetails/toKnow';
 import prisma from '@/src/lib/prisma';
-import { Heart, Share } from 'lucide-react';
+import { Share } from 'lucide-react';
 import Image from 'next/image';
-
+import SpaceLikeButton from '@/components/spaces/spaceLikeButton';
 export default async function Space({
   params
 }: Readonly<{ params: { id: string } }>) {
@@ -26,10 +26,7 @@ export default async function Space({
             <Share size={18} />
             <u className='text-gray-800 text-sm font-medium'>Partager</u>
           </button>
-          <button className='flex items-center gap-2 p-2 rounded-md hover:bg-slate-100'>
-            <Heart size={18} />
-            <u className='text-gray-800 text-sm font-medium'>Enregistrer</u>
-          </button>
+          <SpaceLikeButton spaceId={space.id} />
         </div>
       </div>
       <div className='mb-8 lg:h-[500px] h-[300px] relative'>

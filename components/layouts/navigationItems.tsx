@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 
 export default function NavigationItems() {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <nav className='space-x-8 hidden md:flex font-medium'>

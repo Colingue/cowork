@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -18,17 +21,16 @@ export default function Button({
   disabled = false
 }: Readonly<ButtonProps>) {
   // Définir les styles de base pour chaque variante
-  const baseStyles =
-    'px-6 py-3 w-full rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'px-6 py-3 w-full rounded-lg font-medium outline-none';
 
   const variantStyles = (() => {
     switch (variant) {
       case 'primary':
-        return 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500';
+        return 'bg-blue-600 text-white hover:bg-blue-700';
       case 'secondary':
-        return 'bg-white text-gray-800 hover:bg-gray-300 focus:ring-gray-400';
+        return 'bg-white text-gray-800 hover:bg-gray-300';
       case 'outline':
-        return 'border border-gray-600 text-gray-600 hover:bg-gray-100 focus:ring-gray-500';
+        return 'border border-gray-600 text-gray-600 hover:bg-gray-100';
       default:
         return '';
     }
@@ -37,7 +39,8 @@ export default function Button({
   const disabledStyles = 'opacity-50 cursor-not-allowed';
 
   return (
-    <button
+    <motion.button
+      whileTap={{ scale: 0.97 }}
       type={type}
       onClick={onClick}
       className={`${baseStyles} ${variantStyles} ${
@@ -46,6 +49,6 @@ export default function Button({
       disabled={disabled}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }

@@ -12,7 +12,6 @@ export default function HambergerMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data, status } = useSession();
-  console.log(data);
   const toggleIsOpen = () => setIsOpen((o) => !o);
   return (
     <div className='lg:hidden block'>
