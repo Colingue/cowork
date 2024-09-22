@@ -56,7 +56,7 @@ export async function removeFavorite(
 ): Promise<any> {
   await prisma.favorite.delete({
     where: {
-      AND: {
+      spaceId_userId: {
         spaceId: spaceId,
         userId: userId
       }
