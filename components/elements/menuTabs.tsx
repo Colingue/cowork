@@ -30,7 +30,7 @@ export default function MenuTabs({ user }: Readonly<MenuTabsProps>) {
           Réservations
         </Link>
         <Link
-          href={`/profile/${user.id}`}
+          href={`/spaces/favourites`}
           className='block px-4 py-2 text-gray-700 hover:bg-gray-100 font-semibold'
         >
           Favoris

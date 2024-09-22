@@ -11,7 +11,7 @@ export default async function SpacesGrid({
   spaces
 }: Readonly<SpacesGridProps>) {
   return spaces.length > 0 ? (
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-8'>
       {spaces.map((space) => (
         <Link href={`/spaces/${space.id}`} key={space.id}>
           <CoworkingCard
